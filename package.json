@@ -1,0 +1,27 @@
+{
+  "name": "backbone-request-sync",
+  "version": "0.0.1",
+  "description": "Backbone sync adapter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:archr/backbone-request-sync.git"
+  },
+  "keywords": [
+    "backbone",
+    "adapter",
+    "request"
+  ],
+  "author": "Antonio Sandoval <arche3r@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/archr/backbone-request-sync/issues"
+  },
+  "homepage": "https://github.com/archr/backbone-request-sync",
+  "dependencies": {
+    "superagent": "^1.2.0"
+  }
+}
