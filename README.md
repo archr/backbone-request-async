@@ -1,15 +1,15 @@
-# backbone-request-sync
+# backbone-request-async
 
-Simple sync adapter.
+Simple async adapter.
 
 ---
 
 ### Example
 
 ```js
-var sync = require('backbone-request-sync');
+var async = require('backbone-request-async');
 
-Model.prototype.sync = sync;
+Model.prototype.sync = async;
 
 // Or
 
@@ -18,7 +18,7 @@ Model.prototype.sync = function (method, model, options) {
     Authorization: 'Token'
   };
 
-  sync(method, model, options);
+  async(method, model, options);
 }
 ```
 

@@ -1,4 +1,5 @@
 var request = require('superagent');
+var Promise = require('bluebird');
 
 var METHODS = {
   'read': 'get',
@@ -7,21 +8,30 @@ var METHODS = {
   'update': 'put'
 };
 
+function noop() {};
+
 module.exports = function (method, model, options) {
+  options = options || {};
+  method = METHODS[method];
+
   var url = options.url || model.url();
   var data = model.toJSON();
   var headers = options.headers || {};
-  method = METHODS[method];
+  var onError = options.error || noop;
+  var onSuccess = options.success || noop;
 
-  request[method](url)
-    .send(data)
-    .set(headers)
-    .set(options.headers)
-    .end(function (err, res) {
-      if (err) {
-        return options.error(err);
-      }
+  return new Promise(function (resolve, reject) {
+    request[method](url)
+      .send(data)
+      .set(headers)
+      .end(function (err, res) {
+        if (err) {
+          onError(err);
+          return reject(err);
+        }
 
-      options.success(res.body);
-    });
+        onSuccess(res.body);
+        return resolve(res.body);
+      });
+  });
 };

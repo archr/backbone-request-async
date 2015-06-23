@@ -1,27 +1,29 @@
 {
-  "name": "backbone-request-sync",
-  "version": "0.0.1",
-  "description": "Backbone sync adapter",
+  "name": "backbone-request-async",
+  "version": "0.0.2",
+  "description": "Backbone async adapter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:archr/backbone-request-sync.git"
+    "url": "git@github.com:archr/backbone-request-async.git"
   },
   "keywords": [
     "backbone",
     "adapter",
-    "request"
+    "request",
+    "async"
   ],
   "author": "Antonio Sandoval <arche3r@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/archr/backbone-request-sync/issues"
+    "url": "https://github.com/archr/backbone-request-async/issues"
   },
-  "homepage": "https://github.com/archr/backbone-request-sync",
+  "homepage": "https://github.com/archr/backbone-request-async",
   "dependencies": {
+    "bluebird": "^2.9.30",
     "superagent": "^1.2.0"
   }
 }
