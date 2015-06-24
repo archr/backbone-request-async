@@ -5,7 +5,8 @@ var METHODS = {
   'read': 'get',
   'create':'post',
   'delete': 'del',
-  'update': 'put'
+  'update': 'put',
+  'patch':  'patch'
 };
 
 function noop() {};
