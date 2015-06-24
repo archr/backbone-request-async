@@ -16,10 +16,10 @@ module.exports = function (method, model, options) {
   method = METHODS[method];
 
   var url = options.url || model.url();
-  var data = model.toJSON();
+  var data = options.attrs || model.toJSON();
   var headers = options.headers || {};
-  var onError = options.error || noop;
-  var onSuccess = options.success || noop;
+  var error = options.error || noop;
+  var success = options.success || noop;
 
   return new Promise(function (resolve, reject) {
     request[method](url)
@@ -27,11 +27,11 @@ module.exports = function (method, model, options) {
       .set(headers)
       .end(function (err, res) {
         if (err) {
-          onError(err);
+          error(err);
           return reject(err);
         }
 
-        onSuccess(res.body);
+        success(res.body);
         return resolve(res.body);
       });
   });
